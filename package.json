@@ -1,0 +1,52 @@
+{
+  "name": "Zava",
+  "version": "0.0.1",
+  "description": "Zava",
+  "main": "src/App.ts",
+  "scripts": {
+    "start": "node ./dist/src/App.js",
+    "start:dev": "npm run generate-docs && env-cmd -f ./.env.dev tsc-watch --onSuccess \"node ./dist/src/App.js\"",
+    "start:docker:dev": "env-cmd -f ./.env.dev node ./dist/src/App.js",
+    "compile": "npm run generate-docs && rm -rf dist && tsc",
+    "pm2:start": "npm run compile && pm2-runtime start ecosystem.config.js",
+    "pm2:start:dev": "npm run compile && env-cmd -f ./.env.dev pm2-runtime start ecosystem.config.js",
+    "generate-docs": "npm run mergeApiDocsYml && yaml2json api_docs.yml --pretty > api_docs.json",
+    "mergeApiDocsYml": "node ./scripts/build.apidocs.yml.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/node": "14.14.27",
+    "env-cmd": "10.1.0",
+    "jest": "^27.3.1",
+    "js-yaml": "3.13.1",
+    "pm2": "4.5.1",
+    "ts-jest": "^27.0.7",
+    "tsc-watch": "4.5.0",
+    "typescript": "4.1.3",
+    "yaml-include": "https://github.com/Wheelhub-Opensource/yaml-include.git",
+    "yamljs": "0.3.0"
+  },
+  "dependencies": {
+    "axios": "0.21.1",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "module-alias": "2.2.2",
+    "mysql": "^2.18.1",
+    "swagger-tools": "0.10.4",
+    "typeorm": "0.2.22"
+  },
+  "_moduleAliases": {
+    "@App": "dist/src",
+    "@Exception": "dist/src/exception",
+    "@Module": "dist/src/module",
+    "@Security": "dist/src/security",
+    "@Service": "dist/src/service",
+    "@Root": "dist/src/module/Root",
+    "@Truck": "dist/src/module/Truck"
+  }
+}

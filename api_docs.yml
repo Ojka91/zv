@@ -1,0 +1,202 @@
+swagger: '2.0'
+info:
+  version: '0.1'
+  title: Microservice Connector
+  description: Microservice Connector
+  contact:
+    name: Oscar
+host: localhost
+basePath: /
+schemes:
+  - https
+tags:
+  - name: Root
+    description: Root
+  - name: Connector
+    description: Connector
+securityDefinitions: {}
+paths:
+  /:
+    get:
+      tags:
+        - Root
+      summary: Print welcome message for healthcheck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: array
+            items:
+              type: object
+  /truck:
+    post:
+      tags:
+        - Truck
+      summary: Create Truck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Data to be sent
+          required: true
+          schema:
+            type: object
+            required:
+              - id
+            additionalProperties: false
+            properties:
+              id:
+                type: number
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: object
+  '/truck/{id}':
+    get:
+      tags:
+        - Truck
+      summary: Return Truck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: Entity id
+          required: true
+          type: number
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: object
+  /truck/all:
+    get:
+      tags:
+        - Truck
+      summary: Return Truck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: object
+  '/truck/{id}/load':
+    post:
+      tags:
+        - Truck
+      summary: Load Truck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: Entity id
+          required: true
+          type: number
+        - in: body
+          name: body
+          description: Data to be sent
+          required: true
+          schema:
+            type: object
+            required:
+              - id
+              - name
+              - weight
+            additionalProperties: false
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              weight:
+                type: number
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: object
+  '/truck/{id}/unload':
+    post:
+      tags:
+        - Truck
+      summary: Unload parcer from Truck
+      description: ''
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          description: Entity id
+          required: true
+          type: number
+        - in: body
+          name: body
+          description: Data to be sent
+          required: true
+          schema:
+            type: object
+            required:
+              - id
+            additionalProperties: false
+            properties:
+              id:
+                type: number
+      responses:
+        '200':
+          description: Successful operation
+          schema:
+            type: object
+definitions:
+  ErrorResponse:
+    type: object
+    properties:
+      message:
+        type: string
+  ExampleRequest:
+    type: object
+    properties:
+      title:
+        type: string
+  ExampleResponse:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  ExamplePutRequest:
+    type: object
+    properties:
+      id:
+        type: string
+      title:
+        type: string

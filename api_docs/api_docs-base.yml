@@ -1,0 +1,26 @@
+## file: api_docs.yml
+swagger: "2.0"
+info:
+  version: "0.1"
+  title: Microservice Connector
+  description: Microservice Connector
+  contact:
+    name: Oscar
+
+host: localhost
+basePath: /
+
+schemes:
+  - https
+
+tags:
+  - name: Root
+    description: Root
+  - name: Connector
+    description: Connector
+  
+securityDefinitions: !!inc/dir [ 'security', { excludeTopLevelDirSeparator : true, ignoreFilenames: true }]
+
+paths: !!inc/dir [ 'paths', { excludeTopLevelDirSeparator : true, ignoreFilenames: true } ]
+
+definitions: !!inc/dir [ 'definitions', { recursive: false, allowEmpty: false }]

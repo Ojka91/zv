@@ -1,0 +1,37 @@
+// Documentation: https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+
+
+### Create truck
+POST {{host}}/truck
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### Load truck
+POST {{host}}/truck/1/load
+Content-Type: application/json
+
+{
+  "id": 5,
+  "name": "ttt",
+  "weight": 2
+}
+
+### unload parcer from truck
+POST {{host}}/truck/3/unload
+Content-Type: application/json
+
+{
+  "id": 5
+}
+
+### Get truck
+GET {{host}}/truck/1
+Content-Type: application/json
+
+### Get trucks
+GET {{host}}/truck/all
+Content-Type: application/json

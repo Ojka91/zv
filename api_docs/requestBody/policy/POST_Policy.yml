@@ -1,0 +1,24 @@
+type: object
+required:
+  - role
+  - resource
+  - attributes
+  - action
+  - name
+  - domain
+additionalProperties: false
+properties:
+  role:
+    type: string
+  resource:
+    type: string
+  attributes:
+    type: array
+    items:
+      type: string
+  action:
+    type: string
+  name:
+    type: string
+  domain:
+    type: string

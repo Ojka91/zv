@@ -1,0 +1,17 @@
+/:
+  get:
+    tags:
+      - Root
+    summary: Print welcome message for healthcheck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: array
+          items:
+            type: object

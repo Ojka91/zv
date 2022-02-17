@@ -1,0 +1,144 @@
+/truck:
+  post:
+    tags:
+      - Truck
+    summary: Create Truck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      -
+        in: body
+        name: body
+        description: Data to be sent
+        required: true
+        schema:
+          type: object
+          required:
+            - id
+          additionalProperties: false
+          properties:
+            id:
+              type: number
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: object
+ 
+/truck/{id}:         
+  get:
+    tags:
+      - Truck
+    summary: Return Truck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: path
+        name: id
+        description: Entity id
+        required: true
+        type: number
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: object
+
+/truck/all:         
+  get:
+    tags:
+      - Truck
+    summary: Return Truck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: object
+
+/truck/{id}/load:
+  post:
+    tags:
+      - Truck
+    summary: Load Truck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: path
+        name: id
+        description: Entity id
+        required: true
+        type: number
+      -
+        in: body
+        name: body
+        description: Data to be sent
+        required: true
+        schema:
+          type: object
+          required:
+            - id
+            - name
+            - weight
+          additionalProperties: false
+          properties:
+            id:
+              type: number
+            name:
+              type: string
+            weight:
+              type: number
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: object
+
+/truck/{id}/unload:
+  post:
+    tags:
+      - Truck
+    summary: Unload parcer from Truck
+    description: ""
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: path
+        name: id
+        description: Entity id
+        required: true
+        type: number
+      -
+        in: body
+        name: body
+        description: Data to be sent
+        required: true
+        schema:
+          type: object
+          required:
+            - id
+          additionalProperties: false
+          properties:
+            id:
+              type: number
+    responses:
+      200:
+        description: Successful operation
+        schema:
+          type: object
+
