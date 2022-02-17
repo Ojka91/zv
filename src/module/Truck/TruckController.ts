@@ -13,7 +13,7 @@ export default class TruckController {
     return this.truckInstance.getTruck(parseInt(req.params.id));
   }
 
-  public async getAllTrucks(req: Request) {
+  public async getAllTrucks(_req: Request) {
     return this.truckInstance.getTrucks();
   }
 
@@ -58,7 +58,8 @@ export default class TruckController {
   
     const truck = new Truck(id);
 
-    this.truckInstance.addTruck(truck);
+    return this.truckInstance.addTruck(truck);
+    
   }
   
 }

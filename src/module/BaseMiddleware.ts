@@ -10,7 +10,6 @@ import * as swaggerTools from 'swagger-tools';
 import swaggerDoc from '../../api_docs.json';
 import APIError from '@Service/APIError';
 import OutputMiddleware from './security/OutputMiddleware';
-import Globals from '@App/Globals';
 
 export default class BaseMiddleware {
 

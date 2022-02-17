@@ -1,4 +1,4 @@
-import APIError from "@App/service/APIError";
+import APIError from "../service/APIError";
 import Truck from "./Truck";
 
 export class TrucksInstance {
@@ -24,6 +24,7 @@ export class TrucksInstance {
         }
 
         TrucksInstance.trucks.push(truck);
+        return truck;
     }
 
     public getTrucks(): Truck[] {

@@ -4,8 +4,8 @@
     "module": "commonjs",
     "removeComments": true,
     "moduleResolution": "node",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "sourceMap": true,
     "target": "es2017",
     "outDir": "dist",
@@ -26,7 +26,7 @@
       "@Security/*"           : ["src/security/*"],
       
       "@Root/*"               : ["src/module/Root/*"],
-      "@Truck/*"               : ["src/module/Truck/*"],
+      "@Truck/*"               : ["src/module/Truck/*"]
     }
   },
   "include": ["./**/*.ts"],

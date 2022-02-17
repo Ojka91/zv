@@ -1,0 +1,53 @@
+Few things to consider:
+I decided to use Singleton pattern to fake a real Database. When restarting the app, data will be lost.
+
+You can start the app on local machine by running "start:dev" or using Dockerfile provided. It will run at port 8080.
+
+You can find an API Example on "REST - Truck.http"
+
+I added tests on the instance of the singleton and Truck class.
+
+-------------------------------------------------------------------------------
+
+API:
+### Create Truck:
+POST /truck
+Content-Type: application/json
+
+{
+  "id": number
+}
+
+--
+
+### Load truck
+POST /truck/{{truckId}}/load
+Content-Type: application/json
+
+{
+  "id": number,
+  "name": string,
+  "weight": number
+}
+
+--
+
+### Unload parcer from truck
+POST /truck/{{truckId}}/unload
+Content-Type: application/json
+
+{
+  "id": number
+}
+
+--
+
+### Get truck
+GET /truck/{{id}}
+Content-Type: application/json
+
+--
+
+### Get all trucks
+GET /truck/all
+Content-Type: application/json
